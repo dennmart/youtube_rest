@@ -1,0 +1,58 @@
+= YouTube
+
+A pure Ruby object-oriented interface to the YouTube REST API documented
+at http://www.youtube.com/dev.
+
+API access requires a developer id.  You can obtain one for free at
+http://www.youtube.com/my_profile_dev.
+
+The RubyForge project is at http://rubyforge.org/projects/youtube.
+
+The Google Group to discuss issues and bugs is at http://groups.google.com/group/ruby-youtube-library?hl=en.
+
+== About
+
+Implements version 2 of YouTube's API.
+
+== Installing
+
+Install the gem via:
+
+  % gem install youtube
+
+== Usage
+
+An example as:
+
+  require 'rubygems'
+  require 'youtube'
+
+  youtube = YouTube::Client.new 'DEVELOPER_ID'
+
+  profile = youtube.profile('br0wnpunk')
+  puts "age: " + profile.age.to_s
+
+  favorites = youtube.favorite_videos('br0wnpunk')
+  puts "number of favorite videos: " + favorites.size.to_s
+
+  friends = youtube.friends('paolodona')
+  puts "number of friends: " + friends.size.to_s
+  puts "friend name: " + friends[0].user
+
+  videos = youtube.videos_by_tag('iron maiden')
+  puts "number of videos by tag iron maiden: " + videos.size.to_s
+
+  videos = youtube.videos_by_user('whytheluckystiff')
+  puts "number of videos by why: " + videos.size.to_s
+  puts "title: " + videos[0].title
+
+  videos = youtube.featured_videos
+  puts "number of featured videos: " + videos.size.to_s
+  puts "title: " + videos[0].title
+  puts "url: " + videos[0].url
+  puts "embed url: " + videos[0].embed_url
+  puts "embed html: \n" + videos[0].embed_html
+
+  details = youtube.video_details(videos[0])
+  puts "detailed description: " + details.description
+  puts "thumbnail url: " + details.thumbnail_url

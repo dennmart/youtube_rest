@@ -1,0 +1,12 @@
+- consider creating YouTubeException to raise on failures rather than just
+  a string so that we can pass our request params back up to higher
+  levels should they be interested.
+
+- look into object types stored for comments and channel list and see if
+  we're doing the Right/Best Thing.  It looks like we've got hashes with
+  one key e.g. "comments" that then map to a list of actual comments.
+
+- add unit tests for client.videos_by_tag page and per_page params.
+
+- add unit tests for specifying alternate api host/path in client
+  constructor.

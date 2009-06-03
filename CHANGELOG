@@ -1,0 +1,80 @@
+* 2007/06/12
+
+- [shaper] Fixed typo in VideoDetails, recoding -> recording
+- [cardmagic] Changed URI.encode to CGI.escape to properly encode &
+- [shaper] Test for character encoding
+- [drummr77] Force XML parsed empty strings to be Strings and not Hashes
+	Discovered by shaper.
+- [Rob Tsuk] Added paging support to videos_by_user
+- [Rob Tsuk] Created test YouTube account for running tests
+- [Thomas Cox] Added support for the embed_status tag
+
+* 2007/06/11
+
+- [drummr77] Removed videos_by_category since it was removed by YouTube.
+- [drummr77] Renamed videos_by_category_and_tag to videos_by_category_id_and_tag.
+- [drummr77] Added videos_by_category_and_tag taking in a category name and tag
+
+* 2007/02/12
+
+- [drummr77] Added fix to check if returned video response contains an
+  Array or not.  Return nil instead of erroring out.
+
+- [drummr77] Fixed Video.length accessor.  Changed to Video.length_seconds.
+
+- [drummr77] Added new API methods:
+  youtube.videos.list_by_related (with paging),
+  youtube.videos.list_by_playlist (with paging),
+  youtube.videos.list_by_category (with paging)
+  youtube.videos.list_by_category_and_tag (with paging)
+
+* 2006/11/15
+
+- [drummr77] Applied a modified version of the patch sent in by Lucas
+  Carlson that uses a more functional style of programming in the API
+  calls.
+
+* 2006/11/14
+
+- [drummr77] Changed video_details to take in a video id instead of
+  the whole object.
+
+* 2006/11/04
+
+- [shaper] Restructured to follow standard RubyGems directory structure.
+
+- [shaper] Created a Rakefile.
+
+- [shaper] Created initial unit tests.
+
+- [shaper] Fixed bug wherein responses with only a single result
+  (e.g. from a videos_by_tag call) would fail to successfully parse.
+
+- [shaper] Moved all classes within a YouTube module for cleaner namespace
+  management and in particular to avoid potential conflicts.
+
+- [shaper] Added Video.embed_html method to allow easy retrieval of HTML
+  to embed the video in a web page conforming to the HTML specified on
+  YouTube video pages, with width/height of video optionally specifiable.
+
+- [shaper] Merged dirtywork.rb into the main youtube.rb file and added
+  support for optionally specifying the host and api path for future
+  flexibility without requiring code modifications should YouTube change
+  their API access details.
+
+- [shaper] Modified parsing response payload data to translate to the most
+  appropriate Ruby objects (e.g. integers via to_i(), boolean strings to
+  TrueClass/FalseClass, time strings to Time) wherever applicable.
+
+- [shaper] Moved Video.details() into Client.video_details() for
+  consistency and to avoid having to store a reference to the client in
+  every Video object.
+
+- [shaper] Updated existing and added more RDoc documentation.
+
+- [shaper] Changed API hostname to fully-qualified www.youtube.com from
+  youtube.com.
+
+* 2006/09/28
+
+- [drummr77] Initial Release.
