@@ -1,3 +1,5 @@
+=== Note: This is an older Ruby library that hasn't been maintained for two years, and doesn't work for Rails 2.1 and above. The RubyForge page where I grabbed the original code from is at http://rubyforge.org/projects/youtube/
+
 = YouTube
 
 A pure Ruby object-oriented interface to the YouTube REST API documented
